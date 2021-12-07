@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array</title>
+  </head>
+  <body>
+    <script>
+      // bai 1
+      function CheckArray() {
+        var arr = [];
+        for (var i = 0; i < 5; i++) {
+          var myRe = /00[2-5]L\\d{4}/;
+
+          arr.push(prompt('Enter grade ' + (i + 1)));
+          console.log(arr[i]);
+          if (myRe.exec(arr[i])) {
+            console.log('Dung roi');
+          }
+        }
+        console.log('Sai roi');
+      }
+      //   CheckArray();
+
+      // bai 2
+      function findNumberOfDigits(n, base) {
+        var dig = parseInt(Math.floor(Math.log(n) / Math.log(base)) + 1);
+
+        // printing output
+        document.write(
+          'The Number of digits of ' +
+            'Number ' +
+            n +
+            ' in base ' +
+            base +
+            ' is ' +
+            dig
+        );
+      }
+      var n = 12;
+      var base = 7;
+      //   findNumberOfDigits(n, base);
+      // bai 3
+      function demsolan() {
+        var arr = [];
+        var dem = 1;
+        var max = 0;
+        for (let i = 0; i < 4; i++) {
+          arr.push(prompt('Nhap mang thu ' + (i + 1)));
+          if (arr[i] == arr[i + 1]) {
+            dem++;
+            if (max < dem) {
+              max = dem;
+            }
+          } else {
+            dem = 1;
+          }
+        }
+        return max;
+      }
+      // demsolan();
+
+      // bai 4
+      function GiaoDich(maGiaoDich, ngayGiaoDich, donGia, dienTich) {
+        this.maGiaoDich = maGiaoDich;
+        this.ngayGiaoDich = ngayGiaoDich;
+        this.donGia = donGia;
+        this.dienTich = dienTich;
+        this.loaidatA = function () {
+          return this.dienTich * this.donGia * 1.5;
+        };
+        this.loaidatB = function () {
+          return this.dienTich * this.donGia;
+        };
+        this.loaidatC = function () {
+          return this.dienTich * this.donGia;
+        };
+      }
+
+      const Giaodich = new GiaoDich(12, '12/3/2021', 12000, 12);
+      console.log(Giaodich.loaidatA());
+
+      // bai 5
+    </script>
+  </body>
+</html>
